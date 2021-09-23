@@ -1,0 +1,11 @@
+package extraComponents;
+
+public class ConvertBinToDec {
+	public static int convertDecToBin(String bin_number) {
+		int decimal=Integer.parseInt(bin_number,2);
+		return decimal;
+	}  
+	public static void main(String args[]) {
+		System.out.println(Integer.parseInt("1010",2));
+	}
+}
