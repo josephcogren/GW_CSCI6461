@@ -5,9 +5,19 @@ public class Test {
 		CPU_Control Test = new CPU_Control();
 		Test.initial();
 		
-		for (int i = 0; i < 19; i++) {
+		for (int i = 0; i < 4; i++) {
+			System.out.println("PC:" + Test.PC.getPCaddress());
 			Test.runsinglestep();
 		}
+		
+		System.out.println(Test.Mem.readMem(100));
+		System.out.println(Test.Mem.readMem(101));
+		
+		System.out.println(Test.GPRs.getregister(0));
+		System.out.println(Test.GPRs.getregister(1));
+		
+		System.out.println(Test.Mem.readMem(1000));
+		System.out.println(Test.Mem.readMem(1001));
 		
 		//test load
 		//opcode 000001 R 00 IX 01 I 0 Address 000000
