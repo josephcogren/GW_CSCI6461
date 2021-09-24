@@ -1,9 +1,9 @@
-package extraComponents;
+package conversion;
 
 public class ConvertHexToDec {
 	public static int convertHexToDec(String hex_number) {
 		int decimal=Integer.parseInt(hex_number,16); 
-		System.out.println(Integer.parseInt("ffff",16));
+		//System.out.println(Integer.parseInt("ffff",16));
 		return decimal;
 	} 
 	

@@ -1,5 +1,7 @@
 package components;
 
+import java.io.*;
+import conversion.*;
 
 public class CPU_Control{
 	public ProgramCounter PC = new ProgramCounter();
@@ -25,8 +27,23 @@ public class CPU_Control{
 		Mem = new Memory(2048,7);
 		Mem.writeMem(1, 6);
 		
-		
-		
+		// read IPX.txt and load it to the memory
+		try {
+			String pathname = "IPL.txt";
+			File IPL = new File(pathname);
+			InputStreamReader reader = new InputStreamReader(new FileInputStream(IPL));
+			BufferedReader br = new BufferedReader(reader);
+			String line = "";
+			while (line != null) {
+				line  = br.readLine();
+				if (line == null) break;
+				String[] loadtoMem = line.split(" ");
+				System.out.println(ConvertDecToBin.convertDecToBin(ConvertHexToDec.convertHexToDec(loadtoMem[1])));
+				Mem.writeMem(ConvertHexToDec.convertHexToDec(loadtoMem[0]), ConvertHexToDec.convertHexToDec(loadtoMem[1]));
+			}
+		}	catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 // This command is for post-Project #1 to run a single cycle of our machine simulator.
 	public void runsinglestep(){

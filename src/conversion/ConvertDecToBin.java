@@ -1,4 +1,4 @@
-package extraComponents;
+package conversion;
 
 public class ConvertDecToBin {
 public static String convertDecToBin(int number) {
