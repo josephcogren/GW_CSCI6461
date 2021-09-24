@@ -24,6 +24,9 @@ public class CPU_Control{
 		MFR.resetMFR();
 		Mem = new Memory(2048,7);
 		Mem.writeMem(1, 6);
+		
+		
+		
 	}
 
 	public void runsinglestep(){

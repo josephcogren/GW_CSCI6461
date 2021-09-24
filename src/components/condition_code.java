@@ -6,6 +6,7 @@ public class condition_code {
 	private int DIVZERO = 0;
 	private int EQUALORNOT = 0;
 	
+	
 	public void OVERFLOW() {
 		OVERFLOW = 1;
 	}
