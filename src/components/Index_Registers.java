@@ -2,7 +2,7 @@ package components;
 
 public class Index_Registers{
 	//initializes the registers
-	int[] registers = {0, 0, 0};
+	private int[] registers = {0, 0, 0};
 
 	public Index_Registers(){
 	}
@@ -23,5 +23,18 @@ public class Index_Registers{
 		// fetches the index if it is between 1 and 3
 		else
 			return -1;
+	}
+	
+	public boolean setregister(int index, int newvalue) {
+		if (index >= 1 && index < 4) {
+			if (newvalue < Math.pow(2, 12) && newvalue >= 0) {
+				registers[index] = newvalue;
+				return true;
+			}
+			else
+				return false;
+		}
+		else
+			return false;
 	}
 }

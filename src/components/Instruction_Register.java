@@ -26,6 +26,10 @@ public class Instruction_Register{
 		else
 			return false;
 	}
+	
+	public int getinstruction(){
+		return instruction;
+	}
 
 	public int getopcode(){
 		return opcode;
