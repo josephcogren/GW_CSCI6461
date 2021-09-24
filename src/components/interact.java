@@ -20,6 +20,20 @@ public class interact {
 		CPU.runsinglestep();
 	}
 	
+	// if the opcode is correct which is 000001
+	public void Load_button(String InputofBin) {
+		int Input = ConvertBinToDec.convertbintodec(InputofBin);
+		CPU.IR.setinstruction(Input);
+		CPU.runsinglestep();
+	}
+	
+	// if the opcode is correct which is 000002
+	public void Store_button(String InputofBin) {
+		int Input = ConvertBinToDec.convertbintodec(InputofBin);
+		CPU.IR.setinstruction(Input);
+		CPU.runsinglestep();
+	}
+	
 	// LD_button can change the value of each components according to the order of the GUI
 	public boolean LD_button(String InputofBin, int index) {
 		int Input = ConvertBinToDec.convertbintodec(InputofBin);
