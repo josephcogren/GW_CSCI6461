@@ -1,7 +1,7 @@
 package conversion;
 
 public class ConvertBinToDec {
-	public static int convertDecToBin(String bin_number) {
+	public static int convertbintodec(String bin_number) {
 		int decimal=Integer.parseInt(bin_number,2);
 		return decimal;
 	}  

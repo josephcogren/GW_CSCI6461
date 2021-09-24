@@ -38,7 +38,6 @@ public class CPU_Control{
 				line  = br.readLine();
 				if (line == null) break;
 				String[] loadtoMem = line.split(" ");
-				System.out.println(ConvertDecToBin.convertDecToBin(ConvertHexToDec.convertHexToDec(loadtoMem[1])));
 				Mem.writeMem(ConvertHexToDec.convertHexToDec(loadtoMem[0]), ConvertHexToDec.convertHexToDec(loadtoMem[1]));
 			}
 		}	catch (Exception e) {
