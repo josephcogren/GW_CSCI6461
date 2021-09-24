@@ -16,8 +16,8 @@ public class Index_Registers{
 	}
 
 	public int getregister(int index){
-		if (index >= 0 && index < 3)
-			return registers[index];
+		if (index >= 1 && index < 4)
+			return registers[index-1];
 		else
 			return -1;
 	}

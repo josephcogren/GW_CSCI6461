@@ -8,6 +8,7 @@ public class CPU_Control{
 	public Index_Registers IXR = new Index_Registers();
 	public Memory_Address_Register MAR = new Memory_Address_Register();
 	public Memory_Buffer_Register MBR = new Memory_Buffer_Register();
+	public Machine_Fault_Register MFR = new Machine_Fault_Register();
 	public Memory Mem = new Memory();
 
 	public CPU_Control(){
@@ -20,6 +21,7 @@ public class CPU_Control{
 		IXR = new Index_Registers(7, 100, 1000);
 		MAR = new Memory_Address_Register();
 		MBR = new Memory_Buffer_Register();
+		MFR.resetMFR();
 		Mem = new Memory(2048,7);
 		Mem.writeMem(1, 6);
 	}
@@ -45,7 +47,7 @@ public class CPU_Control{
 			if (IR.getindexregister() == 0) {
 				EA = IR.getaddress();
 			}
-			else if (IR.getaddress() > 0 && IR.getaddress() < 4) {
+			else if (IR.getindexregister() > 0 && IR.getindexregister() < 4) {
 				EA = IXR.getregister(IR.getindexregister()) + IR.getaddress();
 			}
 		}
@@ -55,7 +57,7 @@ public class CPU_Control{
 				MBR.setData(Mem.readMem(MAR.getMemaddress()));
 				EA = MBR.getData();
 			}
-			else if (IR.getaddress() > 0 && IR.getaddress() < 4) {
+			else if (IR.getindexregister() > 0 && IR.getindexregister() < 4) {
 				MAR.setMemaddress(IR.getaddress());
 				MBR.setData(Mem.readMem(MAR.getMemaddress()));
 				EA = IXR.getregister(IR.getindexregister()) + MBR.getData();
@@ -68,6 +70,31 @@ public class CPU_Control{
 	}
 
 	public void Store(){
-
+		int EA = 0;
+		
+		if (IR.getindirect() == 0) {
+			if (IR.getindexregister() == 0) {
+				EA = IR.getaddress();
+			}
+			else if (IR.getindexregister() > 0 && IR.getindexregister() < 4) {
+				EA = IXR.getregister(IR.getindexregister()) + IR.getaddress();
+			}
+		}
+		else if (IR.getindirect() == 1) {
+			if (IR.getindexregister() == 0) {
+				MAR.setMemaddress(IR.getaddress());
+				MBR.setData(Mem.readMem(MAR.getMemaddress()));
+				EA = MBR.getData();
+			}
+			else if (IR.getindexregister() > 0 && IR.getindexregister() < 4) {
+				MAR.setMemaddress(IR.getaddress());
+				MBR.setData(Mem.readMem(MAR.getMemaddress()));
+				EA = IXR.getregister(IR.getindexregister()) + MBR.getData();
+			}
+		}
+		
+		MAR.setMemaddress(EA);
+		MBR.setData(GPRs.getregister(IR.getregister()));
+		Mem.writeMem(MAR.getMemaddress(), MBR.getData());
 	}
 }
