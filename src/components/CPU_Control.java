@@ -12,7 +12,7 @@ public class CPU_Control{
 
 	public CPU_Control(){
 	}
-
+// This sets the initial conditions of the machine before use
 	public void initial(){
 		PC = new ProgramCounter(7);
 		GPRs = new General_Purpose_Registers();
@@ -23,7 +23,7 @@ public class CPU_Control{
 		Mem = new Memory(2048,7);
 		Mem.writeMem(1, 6);
 	}
-
+// This command is for post-Project #1 to run a single cycle of our machine simulator.
 	public void runsinglestep(){
 		MAR.setMemaddress(PC.getPCaddress());
 		PC.PCPlus();
@@ -38,9 +38,11 @@ public class CPU_Control{
 				break;
 		}
 	}
-
+// This acts as the CPU load
 	public void Load(){
+		// Sets the EA to 0
 		int EA = 0;
+		// Then checks for an IR indirect in each register
 		if (IR.getindirect() == 0) {
 			if (IR.getindexregister() == 0) {
 				EA = IR.getaddress();
@@ -61,12 +63,14 @@ public class CPU_Control{
 				EA = IXR.getregister(IR.getindexregister()) + MBR.getData();
 			}
 		}
-		
+		// Then moves to set the memory address via the EA
 		MAR.setMemaddress(EA);
+		// Sets the MBR
 		MBR.setData(Mem.readMem(MAR.getMemaddress()));
+		// Sets the GPR
 		GPRs.setregister(IR.getregister(), MBR.getData());
 	}
-
+	// Is our store function
 	public void Store(){
 
 	}

@@ -1,12 +1,14 @@
 package components;
 
 public class Index_Registers{
+	//initializes the registers
 	int[] registers = {0, 0, 0};
 
 	public Index_Registers(){
 	}
 
 	public Index_Registers(int register1, int register2, int register3){
+		//determines which register is appropriate
 		if (register1 < Math.pow(2, 12) && register1 >= 0)
 			registers[0] = register1;
 		if (register2 < Math.pow(2, 12) && register2 >= 0)
@@ -16,6 +18,7 @@ public class Index_Registers{
 	}
 
 	public int getregister(int index){
+		//fetchs the index if it is between 0 and 3
 		if (index >= 0 && index < 3)
 			return registers[index];
 		else
