@@ -1,5 +1,7 @@
 package components;
 
+// not used yet
+
 public class Machine_Fault_Register {
 	private int Faultindex = -1;
 	
