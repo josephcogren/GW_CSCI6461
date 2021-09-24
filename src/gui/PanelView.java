@@ -1,3 +1,5 @@
+package gui;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -7,6 +9,8 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class PanelView extends JFrame {
 
@@ -84,36 +88,232 @@ public class PanelView extends JFrame {
 		contentPane.add(lblIxr_3);
 		
 		textGpr_0 = new JTextField();
+		textGpr_0.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c)) {
+					e.consume();
+				}
+			}
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String input = textGpr_0.getText();
+				int length = input.length();
+				char c = e.getKeyChar();
+				if(e.getKeyChar()>= '0' && e.getKeyChar()<='1') {
+					if(length<16) {
+						textGpr_0.setEditable(true);
+					} else {
+						textGpr_0.setEditable(false);
+					} 
+				} else {
+					if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || e.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+						textGpr_0.setEditable(true);
+					} else {
+						textGpr_0.setEditable(false);
+					}
+					}
+			}
+		});
 		textGpr_0.setBounds(70, 20, 160, 16);
 		contentPane.add(textGpr_0);
 		textGpr_0.setColumns(10);
 		
 		textGpr_1 = new JTextField();
+		textGpr_1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c)) {
+					e.consume();
+					}
+				}
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String input = textGpr_1.getText();
+				int length = input.length();
+				char c = e.getKeyChar();
+				if(e.getKeyChar()>= '0' && e.getKeyChar()<='1') {
+					if(length<16) {
+						textGpr_1.setEditable(true);
+					} else {
+						textGpr_1.setEditable(false);
+					} 
+				} else {
+					if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || e.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+						textGpr_1.setEditable(true);
+					} else {
+						textGpr_1.setEditable(false);
+					}
+					}
+			}
+		});
 		textGpr_1.setColumns(10);
 		textGpr_1.setBounds(70, 40, 160, 16);
 		contentPane.add(textGpr_1);
 		
 		textGpr_2 = new JTextField();
+		textGpr_2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c)) {
+					e.consume();
+					}
+			}
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String input = textGpr_2.getText();
+				int length = input.length();
+				char c = e.getKeyChar();
+				if(e.getKeyChar()>= '0' && e.getKeyChar()<='1') {
+					if(length<16) {
+						textGpr_2.setEditable(true);
+					} else {
+						textGpr_2.setEditable(false);
+					} 
+				} else {
+					if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || e.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+						textGpr_2.setEditable(true);
+					} else {
+						textGpr_2.setEditable(false);
+					}
+					}
+			}
+		});
 		textGpr_2.setColumns(10);
 		textGpr_2.setBounds(70, 60, 160, 16);
 		contentPane.add(textGpr_2);
 		
 		textGpr_3 = new JTextField();
+		textGpr_3.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c)) {
+					e.consume();
+					}
+			}
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String input = textGpr_3.getText();
+				int length = input.length();
+				char c = e.getKeyChar();
+				if(e.getKeyChar()>= '0' && e.getKeyChar()<='1') {
+					if(length<16) {
+						textGpr_3.setEditable(true);
+					} else {
+						textGpr_3.setEditable(false);
+					} 
+				} else {
+					if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || e.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+						textGpr_3.setEditable(true);
+					} else {
+						textGpr_3.setEditable(false);
+					}
+					}
+			}
+		});
 		textGpr_3.setColumns(10);
 		textGpr_3.setBounds(70, 80, 160, 16);
 		contentPane.add(textGpr_3);
 		
 		textIxr_1 = new JTextField();
+		textIxr_1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c)) {
+					e.consume();
+					}
+			}
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String input = textIxr_1.getText();
+				int length = input.length();
+				char c = e.getKeyChar();
+				if(e.getKeyChar()>= '0' && e.getKeyChar()<='1') {
+					if(length<16) {
+						textIxr_1.setEditable(true);
+					} else {
+						textIxr_1.setEditable(false);
+					} 
+				} else {
+					if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || e.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+						textIxr_1.setEditable(true);
+					} else {
+						textIxr_1.setEditable(false);
+					}
+					}
+			}
+		});
 		textIxr_1.setColumns(10);
 		textIxr_1.setBounds(70, 120, 160, 16);
 		contentPane.add(textIxr_1);
 		
 		textIxr_2 = new JTextField();
+		textIxr_2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c)) {
+					e.consume();
+					}
+			}
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String input = textIxr_2.getText();
+				int length = input.length();
+				char c = e.getKeyChar();
+				if(e.getKeyChar()>= '0' && e.getKeyChar()<='1') {
+					if(length<16) {
+						textIxr_2.setEditable(true);
+					} else {
+						textIxr_2.setEditable(false);
+					} 
+				} else {
+					if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || e.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+						textIxr_2.setEditable(true);
+					} else {
+						textIxr_2.setEditable(false);
+					}
+					}
+			}
+		});
 		textIxr_2.setColumns(10);
 		textIxr_2.setBounds(70, 140, 160, 16);
 		contentPane.add(textIxr_2);
 		
 		textIxr_3 = new JTextField();
+		textIxr_3.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c)) {
+					e.consume();
+					}
+			}
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String input = textIxr_3.getText();
+				int length = input.length();
+				char c = e.getKeyChar();
+				if(e.getKeyChar()>= '0' && e.getKeyChar()<='1') {
+					if(length<16) {
+						textIxr_3.setEditable(true);
+					} else {
+						textIxr_3.setEditable(false);
+					} 
+				} else {
+					if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || e.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+						textIxr_3.setEditable(true);
+					} else {
+						textIxr_3.setEditable(false);
+					}
+					}
+			}
+		});
 		textIxr_3.setColumns(10);
 		textIxr_3.setBounds(70, 160, 160, 16);
 		contentPane.add(textIxr_3);
@@ -171,31 +371,142 @@ public class PanelView extends JFrame {
 		contentPane.add(lblPriv);
 		
 		textPC = new JTextField();
+		textPC.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c)) {
+					e.consume();
+					}
+			}
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String input = textPC.getText();
+				int length = input.length();
+				char c = e.getKeyChar();
+				if(e.getKeyChar()>= '0' && e.getKeyChar()<='1') {
+					if(length<12) {
+						textPC.setEditable(true);
+					} else {
+						textPC.setEditable(false);
+					} 
+				} else {
+					if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || e.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+						textPC.setEditable(true);
+					} else {
+						textPC.setEditable(false);
+					}
+					}
+			}
+		});
 		textPC.setColumns(10);
 		textPC.setBounds(415, 20, 120, 16);
 		contentPane.add(textPC);
 		
 		textMAR = new JTextField();
+		textMAR.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c)) {
+					e.consume();
+					}
+			}
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String input = textMAR.getText();
+				int length = input.length();
+				char c = e.getKeyChar();
+				if(e.getKeyChar()>= '0' && e.getKeyChar()<='1') {
+					if(length<12) {
+						textMAR.setEditable(true);
+					} else {
+						textMAR.setEditable(false);
+					} 
+				} else {
+					if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || e.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+						textMAR.setEditable(true);
+					} else {
+						textMAR.setEditable(false);
+					}
+					}
+			}
+		});
 		textMAR.setColumns(10);
 		textMAR.setBounds(415, 40, 120, 16);
 		contentPane.add(textMAR);
 		
 		textMBR = new JTextField();
+		textMBR.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c)) {
+					e.consume();
+					}
+			}
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String input = textMBR.getText();
+				int length = input.length();
+				char c = e.getKeyChar();
+				if(e.getKeyChar()>= '0' && e.getKeyChar()<='1') {
+					if(length<16) {
+						textMBR.setEditable(true);
+					} else {
+						textMBR.setEditable(false);
+					} 
+				} else {
+					if(e.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || e.getExtendedKeyCode()==KeyEvent.VK_DELETE) {
+						textMBR.setEditable(true);
+					} else {
+						textMBR.setEditable(false);
+					}
+					}
+			}
+		});
 		textMBR.setColumns(10);
 		textMBR.setBounds(377, 60, 160, 16);
 		contentPane.add(textMBR);
 		
 		textIR = new JTextField();
+		textIR.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c)) {
+					e.consume();
+					}
+			}
+		});
 		textIR.setColumns(10);
 		textIR.setBounds(375, 80, 160, 16);
 		contentPane.add(textIR);
 		
 		textMFR = new JTextField();
+		textMFR.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c)) {
+					e.consume();
+					}
+			}
+		});
 		textMFR.setColumns(10);
 		textMFR.setBounds(485, 101, 50, 16);
 		contentPane.add(textMFR);
 		
 		textPriv = new JTextField();
+		textPriv.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c)) {
+					e.consume();
+					}
+			}
+		});
 		textPriv.setColumns(10);
 		textPriv.setBounds(515, 120, 20, 16);
 		contentPane.add(textPriv);
@@ -211,18 +522,6 @@ public class PanelView extends JFrame {
 		JButton btnMBR = new JButton("LD");
 		btnMBR.setBounds(545, 60, 25, 15);
 		contentPane.add(btnMBR);
-		
-		JButton btnIR = new JButton("LD");
-		btnIR.setBounds(545, 80, 25, 15);
-		contentPane.add(btnIR);
-		
-		JButton btnMFR = new JButton("LD");
-		btnMFR.setBounds(545, 100, 25, 15);
-		contentPane.add(btnMFR);
-		
-		JButton btnPriv = new JButton("LD");
-		btnPriv.setBounds(545, 120, 25, 15);
-		contentPane.add(btnPriv);
 		
 		JButton btnNewButton = new JButton("15");
 		btnNewButton.setBounds(20, 250, 30, 45);
