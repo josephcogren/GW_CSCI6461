@@ -1,7 +1,6 @@
 package components;
 
 public class Instruction_Register{
-	// initializes the instruction registers
 	private int instruction = 0;
 	private int opcode = 0;
 	private int register = 0;
@@ -13,7 +12,7 @@ public class Instruction_Register{
 	}
 
 	public boolean setinstruction(int newinstruction){
-		// sets all of the appropriate values according to the instruction set spec
+		// sets all of the appropriate values according to the instruction (part of decode)
 		if (newinstruction < Math.pow(2,16) && newinstruction >= 0){
 			instruction = newinstruction;
 			opcode = instruction / (int) Math.pow(2, 10);

@@ -5,11 +5,13 @@ public class Test {
 		CPU_Control Test = new CPU_Control();
 		Test.initial();
 		
+		// test our own simple IPL of 4 instructions
 		for (int i = 0; i < 4; i++) {
 			System.out.println("PC:" + Test.PC.getPCaddress());
 			Test.runsinglestep();
 		}
 		
+		// check the results: load the data from location 100 and 101 and then write them to location 1000 and 1001
 		System.out.println(Test.Mem.readMem(100));
 		System.out.println(Test.Mem.readMem(101));
 		

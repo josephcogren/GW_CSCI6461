@@ -1,5 +1,7 @@
 package components;
 
+// CC not complete yet, it will be connect the ALU
+
 public class condition_code {
 	private int OVERFLOW = 0;
 	private int UNDERFLOW = 0;

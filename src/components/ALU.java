@@ -1,5 +1,7 @@
 package components;
 
+// ALU not complete yet
+
 public class ALU {
 	private int Y = 0;
 	private int Z = 0;

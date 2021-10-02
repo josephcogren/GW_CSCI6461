@@ -7,7 +7,7 @@ public class ProgramCounter {
 	public ProgramCounter(){
 	}
 
-	//points the PC address if appropriate
+	//initial the PC address if appropriate
 	public ProgramCounter(int PCaddress){
 		if (PCaddress < Math.pow(2,12) && PCaddress >= 0){
 			this.PCaddress = PCaddress;
@@ -24,7 +24,7 @@ public class ProgramCounter {
 		return PCaddress;
 	}
 
-	//re-assigns the PC addres if required and fits the appropriate range of the machine
+	//re-assigns the PC address if required and fits the appropriate range of the machine
 	public boolean setPCaddress(int newaddress){
 		if (newaddress < Math.pow(2,12) && newaddress >= 0){
 			PCaddress = newaddress;

@@ -1,5 +1,6 @@
 package conversion;
 
+// convert hex to decimal
 public class ConvertHexToDec {
 	public static int convertHexToDec(String hex_number) {
 		int decimal=Integer.parseInt(hex_number,16); 

@@ -1,5 +1,7 @@
 package components;
 
+// this is the class that GUI can use and all the components are in the object CPU
+
 import conversion.ConvertBinToDec;
 import conversion.ConvertDecToBin;
 
@@ -18,6 +20,21 @@ public class interact {
 		CPU.runsinglestep();
 	}
 	
+	// if the opcode is correct which is 000001
+	public void Load_button(String InputofBin) {
+		int Input = ConvertBinToDec.convertbintodec(InputofBin);
+		CPU.IR.setinstruction(Input);
+		CPU.runsinglestep();
+	}
+	
+	// if the opcode is correct which is 000002
+	public void Store_button(String InputofBin) {
+		int Input = ConvertBinToDec.convertbintodec(InputofBin);
+		CPU.IR.setinstruction(Input);
+		CPU.runsinglestep();
+	}
+	
+	// LD_button can change the value of each components according to the order of the GUI
 	public boolean LD_button(String InputofBin, int index) {
 		int Input = ConvertBinToDec.convertbintodec(InputofBin);
 		switch (index) {
@@ -45,6 +62,7 @@ public class interact {
 		return false;
 	}
 	
+	// This function can return the value of each components according to the order of the GUI
 	public String get_number(int index) {
 		switch (index) {
 		case 1: 

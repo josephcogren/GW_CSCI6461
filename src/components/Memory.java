@@ -9,7 +9,7 @@ public class Memory{
 	}
 
 	public Memory(int size, int start){
-		// determines if a new words directory is needed, else it sets start to itself
+		// determines if new words directory is needed, else it sets start to itself
 		if (size >= 2048 && size <= 4096){
 			Memwords = new int[size];
 		}
@@ -19,7 +19,7 @@ public class Memory{
 	}
 
 	public int readMem(int address){
-		//determines if the memory address is accpetable or not, else throws and error
+		//determines if the memory address is acceptable or not, else throws and error
 		if (address >= start && address < Memwords.length)
 			return Memwords[address];
 		else
@@ -27,7 +27,7 @@ public class Memory{
 	}
 
 	public boolean writeMem(int address, int newData){
-		// writes to memory if the address is within the accpetable range and if the new data is wihtin the limits of our bit-limits
+		// writes to memory if the address is within the acceptable range and if the new data is within the limits of our bit-limits
 		if (address >= start && address < Memwords.length){
 			if (newData >= 0 && newData < Math.pow(2, 16)){
 				Memwords[address] = newData;

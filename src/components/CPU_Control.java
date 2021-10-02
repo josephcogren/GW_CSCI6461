@@ -1,9 +1,12 @@
 package components;
 
+// This class control all the components' object and can decode the instruction and execute them
+
 import java.io.*;
 import conversion.*;
 
 public class CPU_Control{
+	// all the components including Memory
 	public ProgramCounter PC = new ProgramCounter();
 	public General_Purpose_Registers GPRs = new General_Purpose_Registers();
 	public Instruction_Register IR = new Instruction_Register();
@@ -15,7 +18,7 @@ public class CPU_Control{
 
 	public CPU_Control(){
 	}
-// This sets the initial conditions of the machine before use
+// This sets the initial components of the machine (initial or restart)
 	public void initial(){
 		PC = new ProgramCounter(7);
 		GPRs = new General_Purpose_Registers();
@@ -40,16 +43,23 @@ public class CPU_Control{
 				String[] loadtoMem = line.split(" ");
 				Mem.writeMem(ConvertHexToDec.convertHexToDec(loadtoMem[0]), ConvertHexToDec.convertHexToDec(loadtoMem[1]));
 			}
+			br.close();
 		}	catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
 // This command is for post-Project #1 to run a single cycle of our machine simulator.
 	public void runsinglestep(){
+		// set the MAR according to the PC
 		MAR.setMemaddress(PC.getPCaddress());
+		// PC += 1
 		PC.PCPlus();
+		// get the instruction from the Memory to MBR
 		MBR.setData(Mem.readMem(MAR.getMemaddress()));
+		// set the instruction to IR from MBR
 		IR.setinstruction(MBR.getData());
+		// decode and get the opcode and then execute instruction accordingly
 		switch(IR.getopcode()){
 			case 1:
 				Load();
@@ -59,11 +69,11 @@ public class CPU_Control{
 				break;
 		}
 	}
-// This acts as the CPU load
+	
+// This acts as the load instruction
 	public void Load(){
-		// Sets the EA to 0
 		int EA = 0;
-		// Then checks for an IR indirect in each register
+		// checks for an IR indirect in each register and computing the correct EA
 		if (IR.getindirect() == 0) {
 			if (IR.getindexregister() == 0) {
 				EA = IR.getaddress();
@@ -84,18 +94,18 @@ public class CPU_Control{
 				EA = IXR.getregister(IR.getindexregister()) + MBR.getData();
 			}
 		}
-		// Then moves to set the memory address via the EA
+		// set the correct EA to the MAR
 		MAR.setMemaddress(EA);
-		// Sets the MBR
+		// read the Memory and fetch the data to the MBR
 		MBR.setData(Mem.readMem(MAR.getMemaddress()));
-		// Sets the GPR
+		// load the data in MBR to the target register
 		GPRs.setregister(IR.getregister(), MBR.getData());
 	}
 	
-// Is our store function
+// 
 	public void Store(){
 		int EA = 0;
-		
+		// checks for an IR indirect in each register and computing the correct EA
 		if (IR.getindirect() == 0) {
 			if (IR.getindexregister() == 0) {
 				EA = IR.getaddress();
@@ -116,9 +126,11 @@ public class CPU_Control{
 				EA = IXR.getregister(IR.getindexregister()) + MBR.getData();
 			}
 		}
-		
+		// set the correct EA to the MAR
 		MAR.setMemaddress(EA);
+		// get the data from GPRs to MBR
 		MBR.setData(GPRs.getregister(IR.getregister()));
+		// write the data in MBR to the Memory with the address of MAR
 		Mem.writeMem(MAR.getMemaddress(), MBR.getData());
 	}
 }
