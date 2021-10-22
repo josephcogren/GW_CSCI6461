@@ -1,6 +1,11 @@
 package components;
 
-// not used yet
+// It now can store the machine Fault 0, 2, 3
+// ID	Fault
+// 0	Illegal Memory Address to Reserved Locations MFR set to binary 0001
+// 1	Illegal TRAP code  MFR set to binary 0010
+// 2	Illegal Operation Code MFR set to 0100
+// 3	Illegal Memory Address beyond 2048 (memory installed)  MFR set to binary 1000
 
 public class Machine_Fault_Register {
 	private int Faultindex = -1;

@@ -12,26 +12,30 @@ public class interact {
 		CPU.initial();
 	}
 	
-	public void IPL_button() {
+	public int IPL_button() {
 		CPU.initial();
+		return CPU.halt;	// return halt or not, if hault is 1 then it means something went wrong, and the display of MFR will change
 	}
 	
-	public void SS_button() {
+	public int SS_button() {
 		CPU.runsinglestep();
+		return CPU.halt;	// return halt or not, if hault is 1 then it means something went wrong, and the display of MFR will change
 	}
 	
 	// if the opcode is correct which is 000001
-	public void Load_button(String InputofBin) {
+	public int Load_button(String InputofBin) {
 		int Input = ConvertBinToDec.convertbintodec(InputofBin);
 		CPU.IR.setinstruction(Input);
-		CPU.runsinglestep();
+		CPU.runinstruction();
+		return CPU.halt;	// return halt or not, if hault is 1 then it means something went wrong, and the display of MFR will change
 	}
 	
-	// if the opcode is correct which is 000002
-	public void Store_button(String InputofBin) {
+	// if the opcode is correct which is 000010
+	public int Store_button(String InputofBin) {
 		int Input = ConvertBinToDec.convertbintodec(InputofBin);
 		CPU.IR.setinstruction(Input);
-		CPU.runsinglestep();
+		CPU.runinstruction();
+		return CPU.halt;	// return halt or not, if hault is 1 then it means something went wrong, and the display of MFR will change
 	}
 	
 	// LD_button can change the value of each components according to the order of the GUI
@@ -63,31 +67,33 @@ public class interact {
 	}
 	
 	// This function can return the value of each components according to the order of the GUI
-	public String get_number(int index) {
+	public int get_number(int index) {
 		switch (index) {
 		case 1: 
-			return ConvertDecToBin.convertDecToBin(CPU.GPRs.getregister(0));
+			return CPU.GPRs.getregister(0);
 		case 2:
-			return ConvertDecToBin.convertDecToBin(CPU.GPRs.getregister(1));
+			return CPU.GPRs.getregister(1);
 		case 3:
-			return ConvertDecToBin.convertDecToBin(CPU.GPRs.getregister(2));
+			return CPU.GPRs.getregister(2);
 		case 4:
-			return ConvertDecToBin.convertDecToBin(CPU.GPRs.getregister(3));
+			return CPU.GPRs.getregister(3);
 		case 5:
-			return ConvertDecToBin.convertDecToBin(CPU.IXR.getregister(1));
+			return CPU.IXR.getregister(1);
 		case 6:
-			return ConvertDecToBin.convertDecToBin(CPU.IXR.getregister(2));
+			return CPU.IXR.getregister(2);
 		case 7:
-			return ConvertDecToBin.convertDecToBin(CPU.IXR.getregister(3));
+			return CPU.IXR.getregister(3);
 		case 8:
-			return ConvertDecToBin.convertDecToBin(CPU.PC.getPCaddress());
+			return CPU.PC.getPCaddress();
 		case 9:
-			return ConvertDecToBin.convertDecToBin(CPU.MAR.getMemaddress());
+			return CPU.MAR.getMemaddress();
 		case 10:
-			return ConvertDecToBin.convertDecToBin(CPU.MBR.getData());
+			return CPU.MBR.getData();
 		case 11:
-			return ConvertDecToBin.convertDecToBin(CPU.IR.getinstruction());
+			return CPU.IR.getinstruction();
+		case 12:
+			return CPU.MFR.getFault();
 		}
-		return "";
+		return 0;
 	}
 }
