@@ -14,7 +14,7 @@ public class Memory_Buffer_Register{
 
 	public boolean setData(int newData){
 		//checks if the data is appropriate before assigning it to the MBR
-		if (newData < Math.pow(2,12) && newData >= 0){
+		if (newData < Math.pow(2,16) && newData >= 0){
 			Data = newData;
 			return true;
 		}

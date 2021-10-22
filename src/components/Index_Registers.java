@@ -8,7 +8,7 @@ public class Index_Registers{
 	}
 
 	public Index_Registers(int register1, int register2, int register3){
-		//determines which register is appropriate and limit the value
+		// recreate the IXR and determines which register is appropriate and limit the value
 		if (register1 < Math.pow(2, 12) && register1 >= 0)
 			registers[0] = register1;
 		if (register2 < Math.pow(2, 12) && register2 >= 0)
@@ -30,7 +30,7 @@ public class Index_Registers{
 		// limit the index and value
 		if (index >= 1 && index < 4) {
 			if (newvalue < Math.pow(2, 12) && newvalue >= 0) {
-				registers[index] = newvalue;
+				registers[index - 1] = newvalue;
 				return true;
 			}
 			else

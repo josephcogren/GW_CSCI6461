@@ -8,7 +8,7 @@ public class General_Purpose_Registers{
 	}
 
 	public int getregister(int index){
-		// checks if the register value is between 0 and 3 and then grabs it, otherwise throws an error
+		// checks if the index value is between 0 and 3 and then grabs it, otherwise throws an error
 		if (index >= 0 && index < 4)
 			return registers[index];
 		else
