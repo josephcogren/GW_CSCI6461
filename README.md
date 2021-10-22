@@ -21,4 +21,4 @@ Running IPL: In order to run the commands in the IPL.txt, ensure the IPL.txt is 
 
 Memory address: the IPL.txt will be loaded start from location 7. Any instruction from the GUI input or IPL.txt which try to access address less than 7 or bigger than 2048 will result machine fault 0 or 3, and then machine will halt and need to be resarted by pressing the IPL button. (the machine fault index will be displayed in the textbox above.)
 
-OPcode: the opcode in the machine right now are only load, store and halt which are 1, 2, 3. Any other opcode inputed will result a machine fault 2 and the machine will halt.
+OPcode: the opcode in the machine right now are only load, store and halt which are 1, 2, and 3. Any other opcode inputed will result a machine fault 2 and the machine will halt.
